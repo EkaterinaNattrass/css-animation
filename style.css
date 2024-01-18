@@ -1,0 +1,387 @@
+body {
+  background-color: white;
+  margin: 0;
+  /* perspective: 100px;  how far away you are from the element */
+}
+header {
+  width: 100%;
+  height: 100px;
+  padding: 3px;
+  display: flex;
+}
+
+nav a {
+  color: #3d0a36;
+  text-decoration: none;
+  font-size: 25px;
+  font-family: "Roboto", sans-serif;
+}
+
+nav a:hover {
+  font-size: 28px;
+  font-weight: bolder;
+  color: whitesmoke;
+  background-color: #bd58ae;
+  padding: 10px;
+}
+
+nav {
+  padding: 5px;
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.spinning-container {
+  width: 100%;
+  height: fit-content;
+  display: flex;
+  justify-content: center;
+}
+
+.spinning-img {
+  width: 700px;
+  margin-top: 100px;
+  animation-name: spin;
+  animation-duration: 40s;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes move {
+  0% {
+    transform: translatex(0);
+  }
+  100% {
+    transform: translatex(500px);
+  }
+}
+
+img {
+  width: 300px;
+}
+
+.candies {
+  /*transform: translate(300px, 300px) scale(2) rotate(45deg); */
+  /* transform: rotateX(45deg) rotateY(20deg); translate3d good feature to move an object in three dimensions */
+  animation-name: move;
+  animation-duration: 5s;
+  animation-delay: 3s;
+  animation-iteration-count: 3;
+  animation-direction: alternate;
+}
+
+/* buttons */
+
+.button-container {
+  display: flex;
+  justify-content: center;
+  margin: 50px;
+}
+
+button {
+  width: 150px;
+  height: 55px;
+  font-size: 20px;
+  text-transform: uppercase;
+}
+
+.btn-1 {
+  border: orange solid 2px;
+  border-radius: 5%;
+  transition: background 0.3s ease-in,
+    transform 0.2s 0.1s /* delay for the transition */ ease-in-out,
+    border-radius 0.3s ease-in;
+}
+
+.btn-1:hover {
+  transform: scale(1.2);
+  background-color: #323c59;
+  color: orange;
+  border-radius: 20px;
+}
+
+.btn-2 {
+  color: #3d0a36;
+  background-color: white;
+  letter-spacing: 0;
+  border: none;
+}
+
+.btn-2:hover {
+  letter-spacing: 5px;
+}
+
+.btn-2:after,
+.btn-2:before {
+  backface-visibility: hidden;
+  border: 1px solid rgba(#3d0a36, 0);
+  bottom: 0px;
+  content: " ";
+  display: block;
+  margin: 0 auto;
+  position: relative;
+  transition: all 3s ease-in-out;
+  width: 0;
+}
+
+.btn-2:hover:after,
+.btn-2:hover:before {
+  backface-visibility: hidden;
+  border-color: #fff;
+  transition: width 350ms ease-in-out;
+  width: 70%;
+}
+
+.btn-2:hover:before {
+  bottom: auto;
+  top: 0;
+  width: 70%;
+}
+
+/* TEXT */
+
+.text-container-scale-in {
+    background-color: #F27507 ;
+    height: 500px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.scale-in { 
+  font-size: 50px;
+  color: whitesmoke;
+  font-family: 'Satisfy', cursive;
+  animation-name: scaleIn;
+  animation-duration: 2s;
+  animation-delay: 3s;
+  animation-fill-mode: forwards; /* how the element acts in case of the delay or after animation */
+}
+
+@keyframes scaleIn {
+    0% {
+      transform: scale(0.2);
+    }
+    85% {
+      transform: scale(1);
+    }
+    100% {
+      transform: scale(1.5);
+    }
+  }
+
+.text-container-type {
+    background-color: #DCC6C6;
+    height: 500px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+.type {
+    color: #25475C;
+    font-family: 'Courier Prime', monospace;
+    font-size: 30px;
+  overflow: hidden; /* Ensures the content is not revealed until the animation */
+  border-right: 0.15em solid orange; /* The typwriter cursor */
+  white-space: nowrap; /* Keeps the content on a single line */
+  margin: 0 auto; /* Gives that scrolling effect as the typing happens */
+  letter-spacing: 0.15em;
+  animation: typing 3.5s steps(16), blinking 0.75s step-end infinite; /* number of letters */
+}
+
+@keyframes typing {
+  0% {
+    width: 0;
+  }
+  100% {
+    width: 100%;
+  }
+}
+
+@keyframes blinking {
+  from,
+  to {
+    border-color: transparent;
+  }
+  50% {
+    border-color: orange;
+  }
+}
+
+.text-container-up {
+  background-color: #0c5286;
+  height: 500px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.up {
+  font-family: "Climate Crisis", sans-serif;
+  color: #d94c0c;
+  font-size: 100px;
+  perspective: 1000px;
+  animation: flipping-up 3s 2s cubic-bezier(0.34, 1.56, 0.64, 1) infinite;
+}
+
+@keyframes flipping-up {
+  from {
+    transform: rotateX(90deg);
+  }
+  to {
+    transform: rotateX(0deg);
+  }
+}
+
+.text-container-up-down {
+  background-color: #113048;
+  height: 500px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.up-and-down {
+  font-family: "Climate Crisis", sans-serif;
+  font-size: 90px;
+  perspective: 1000px;
+  transform-style: preserve-3d;
+}
+
+span {
+  display: inline-block;
+  animation: flipping-up 2s cubic-bezier(0.34, 1.56, 0.64, 1) both,
+    flipping-down 2s cubic-bezier(0.34, 1.56, 0.64, 1) 2s backwards,
+    fading 4s;
+  transform-origin: 50% 70%;
+}
+
+@keyframes flipping-down {
+  to {
+    transform: rotateX(-180deg);
+  }
+}
+
+@keyframes fading {
+    0% {opacity: 0;}
+    100% {opacity:1}
+}
+
+span:nth-child(1) {
+  color: #6bb8f2;
+}
+
+span:nth-child(2) {
+  color: #f0e2c8;
+  animation-delay: 0.2s, 2.2s;
+}
+
+span:nth-child(3) {
+  color: #6bb8f2;
+  animation-delay: 0.4s, 2.4s;
+}
+
+span:nth-child(4) {
+  color: #f0e2c8;
+  animation-delay: 0.6s, 2.6s;
+}
+
+span:nth-child(5) {
+  color: #6bb8f2;
+  animation-delay: 0.8s, 2.8s;
+}
+
+span:nth-child(6) {
+  color: #f0e2c8;
+  animation-delay: 1s, 3s;
+}
+
+span:nth-child(7) {
+  color: #6bb8f2;
+  animation-delay: 1.2s, 3.2s;
+}
+
+/* IMAGES */
+
+.image-container {
+  width: 100%;
+  height: 650px;
+  overflow: hidden;
+  position: relative;
+  margin-top: 10px;
+}
+
+.skyline {
+  background-color: #323c59;
+}
+
+.city,
+.cloud {
+  position: absolute;
+}
+
+.city {
+  z-index: 100;
+}
+
+.img-city {
+  width: 100%;
+}
+
+.cloud03 {
+  width: 80px;
+  top: 35px;
+  animation: floating 40s 10s linear infinite backwards;
+}
+
+.cloud02 {
+  width: 75px;
+  top: 20px;
+  animation: floating 30s linear infinite;
+}
+
+.cloud01 {
+  width: 65px;
+  top: 10px;
+  animation: floating 34s 4s linear infinite backwards;
+}
+
+@keyframes floating {
+  0% {
+    transform: translateX(-150px);
+  }
+  100% {
+    transform: translateX(1700px);
+  }
+}
+
+.vinyl {
+  background-color: #f2cf63;
+}
+
+.img-vinyl {
+  animation: rotating 20s linear infinite;
+  animation-play-state: paused;
+}
+
+.img-vinyl:hover {
+  animation-play-state: running;
+}
+
+@keyframes rotating {
+  100% {
+    transform: rotate(360deg);
+  }
+}
